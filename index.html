@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Button styling-->
+    <style>
+     button 
+     {
+     font-size : 30px;
+     padding : 10px;
+     border-radius : 10px;
+     margin :20px;
+    }
+
+    #forward
+    {
+     position:fixed;
+     left:10%;
+     top:0%;
+    }
+
+    #stop
+    {
+     position:fixed;
+     left:11%;
+     top:15%;
+    }
+
+    #back
+    {
+     position:fixed;
+     left:11%;
+     top:30%;
+    }
+
+    #right
+    {
+     position:fixed;
+     left:22%;
+     top:15%;
+    }
+
+    #left
+    {
+     position:fixed;
+     left:0%;
+     top:15%;
+    }
+    
+    </style>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keypad</title>
+
+    <script
+			  src="https://code.jquery.com/jquery-3.7.0.min.js"
+			  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+			  crossorigin="anonymous">
+    </script>  <!-- Including jquery using CDN from code.jquery.com-->
+</head>
+<body>
+        <!-- Adding buttons that excute a function onlick -->
+           
+           <button onclick="moveForward()" id="forward"> Forward </button>
+           
+           <button onclick= "moveBack()" id="back"> Back </button>
+           
+           <button onclick= "moveRight()" id="right"> Right </button>
+           
+           <button onclick= "moveLeft()" id="left"> Left </button>
+           
+           <button onclick= "moveStop()" id="stop"> Stop </button>
+            
+                 
+                 <script type ="text/javascript">  
+                 // Functions for requests
+                 
+                     function moveForward()
+                     {
+
+                        // value array where direction -> specific letter indicating direction which is sent to transfer.php file
+                        var value = {};
+
+                        value.direction = 'f';
+                        
+                        $.ajax({
+                            url:"transfer.php",
+                            method: "post",
+                            data: value,
+
+                            
+
+                        })
+
+
+                     }
+                 </script>
+
+                <script type ="text/javascript">   
+                     function moveBack()
+                     {
+                     
+                         var value = {};
+
+                        value.direction = 'b';
+                        
+                        $.ajax({
+                            url:"transfer.php",
+                            method: "post",
+                            data: value,
+                            success: function (res)
+                            {
+                                console.log(res)
+                            }
+                            
+
+                        })
+                       
+                     }
+                 </script>
+
+                <script type ="text/javascript">   
+                     function moveRight()
+                     
+                     {
+
+                        var value = {};
+
+                        value.direction = 'r';
+                        
+                        $.ajax({
+                            url:"transfer.php",
+                            method: "post",
+                            data: value,
+                            success: function (res)
+                            {
+                                console.log(res)
+                            }
+                            
+
+                        })
+
+
+                     }
+                 </script>
+
+                <script type ="text/javascript">   
+                     function moveLeft()
+                     {
+                     
+                        var value = {};
+
+                        value.direction = 'l';
+                        
+                        $.ajax({
+                            url:"transfer.php",
+                            method: "post",
+                            data: value,
+                            success: function (res)
+                            {
+                                console.log(res)
+                            }
+                            
+
+                        })
+
+
+                     }
+                 </script>
+
+
+                <script type ="text/javascript">   
+                     function moveStop()
+                     
+                     {
+
+
+                        var value = {};
+
+                        value.direction = 's';
+                        
+                        $.ajax({
+                            url:"transfer.php",
+                            method: "post",
+                            data: value,
+                            success: function (res)
+                            {
+                                console.log(res)
+                            }
+                            
+
+                        })
+
+
+                     }
+                 </script>
+</body>
+</html>
+
+
+
